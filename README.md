@@ -11,6 +11,12 @@ This README would normally document whatever steps are necessary to get your app
 ### How do I get set up? ###
 
 * Summary of set up
+	- run "composer install" to install composer dependencies from composer.lock file
+	- run "composer install -D <package name> to add new dependency: use -D switch to install as dev denepndecy
+	- run "composer update" if any new dependencies are installed (added to composer.json file)
+	- run npm install to install packages form package.json
+	- run npm install <package name> to add new package to package.json
+	- run npm install to install packages form package.json again
 * Configuration
 * Dependencies
 * Database configuration
