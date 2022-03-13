@@ -2,6 +2,11 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AuthenticationController;
+
+use App\Http\Controllers\User\UserController;
+
 use Inertia\Inertia;
 
 /*
@@ -14,18 +19,44 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
+/*Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
+});*/
+
+/*Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');*/
+
+Route::get('/dashboard', [UserController::class, 'getDashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware(['auth:user'])->group(function () {
+	Route::get('/', function () {
+	        return redirect()->route('dashboard');
+	    })->name('home');
+
+Route::get('/dashboard', [AdminController::class, 'getDashboard'])->name('dashboard');
+
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth:admin'])->group(function () {
+	Route::get('/admin', function () {
+	        return redirect()->route('admin.dashboard');
+	    })->name('admin.home');
+
+Route::get('/admin/dashboard', [AdminController::class, 'getDashboard'])->name('admin.dashboard');
+
+});
+/**
+ * Authentication routes
+ */
+Route::get('/admin/login', [AuthenticationController::class, 'getLogin'])->name('admin.login');
+Route::post('/admin/login', [AuthenticationController::class, 'postLogin'])->name('admin.login.post');
+Route::post('/admin/logout', [AuthenticationController::class, 'postLogout'])->name('admin.logout.post');
+
 
 require __DIR__.'/auth.php';
