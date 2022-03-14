@@ -1,31 +1,12 @@
-<script setup>
-import BreezeButton from '@/Components/Button.vue';
-import BreezeCheckbox from '@/Components/Checkbox.vue';
-import BreezeGuestLayout from '@/Layouts/Guest.vue';
-import BreezeInput from '@/Components/Input.vue';
-import BreezeLabel from '@/Components/Label.vue';
-import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
-
-defineProps({
-    canResetPassword: Boolean,
-    status: String,
-});
-
-const form = useForm({
-    email: '',
-    password: '',
-    remember: false
-});
-
-const submit = () => {
-    form.post(route('login'), {
-        onFinish: () => form.reset('password'),
-    });
-};
-</script>
-
 <template>
+
+    <!--form @submit.prevent="onSubmit">
+
+            <div class="mb-6">
+                <InputGroup for="email" type="email" v-model="loginForm.email" :label="$t('common.email')" required autofocus autocomplete="off"></InputGroup>
+            </div>
+     </form-->
+
     <BreezeGuestLayout>
         <Head title="Log in" />
 
@@ -36,9 +17,10 @@ const submit = () => {
         </div>
 
         <form @submit.prevent="submit">
+
             <div>
                 <BreezeLabel for="email" value="Email" />
-                <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" :error="form.errors.email" />
+                <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4">
@@ -65,3 +47,70 @@ const submit = () => {
         </form>
     </BreezeGuestLayout>
 </template>
+
+<!--script-->
+<script setup>
+import BreezeButton from '@/Components/Button.vue';
+import BreezeCheckbox from '@/Components/Checkbox.vue';
+import BreezeGuestLayout from '@/Layouts/Guest.vue';
+import BreezeInput from '@/Components/Input.vue';
+import BreezeLabel from '@/Components/Label.vue';
+import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
+/*import Button from '@/Components/Button.vue'
+import Checkbox from '@/Components/Checkbox.vue'
+import Input from '@/Components/Input.vue'
+import Label from '@/Components/Label.vue'
+import InputGroup from '@/Components/InputGroup.vue';*/
+import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+
+defineProps({
+    canResetPassword: Boolean,
+    status: String,
+});
+
+const form = useForm({
+    email: '',
+    password: '',
+    remember: false
+});
+
+const submit = () => {
+    form.post(route('login'), {
+        onFinish: () => form.reset('password'),
+    });
+};
+
+/*export default {
+
+    components: {
+        Button,
+        Checkbox,
+        Input,
+        Label,
+        Head,
+        Link,
+        InputGroup
+    }
+
+    data() {
+        return {
+            loginForm: this.$inertia.form({
+                email: undefined,
+                password: undefined,
+                remember: false
+            })
+        }
+    },
+
+    methods: {
+        onSubmit() {
+            this.loginForm.post(this.route('login'), {
+                onFinish: () => this.loginForm.reset('password'),
+            })
+        }
+    }
+}*/
+
+
+</script>
+

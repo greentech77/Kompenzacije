@@ -1,0 +1,16 @@
+{
+    "common": {
+        "login": "Prijava",
+        "register": "Registracija",
+        "home": "Domov",
+        "terms": "Splošni pogoji",
+        "get-in-touch": "Stopite v stik",
+        "continue": "Naprej",
+        "email": "E-pošta",
+        "password": "Geslo",
+        "company": "Podjetje",
+        "pending": "V potrjevanju",
+        "active": "Aktiven",
+        "rejected": "Zavrnjen"
+    }
+}
