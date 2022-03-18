@@ -1,13 +1,29 @@
 <template>
 
-    <!--form @submit.prevent="onSubmit">
+    <div class="w-screen h-screen sm:bg-stone flex items-center justify-center">
 
-            <div class="mb-6">
-                <InputGroup for="email" type="email" v-model="loginForm.email" :label="$t('common.email')" required autofocus autocomplete="off"></InputGroup>
-            </div>
-     </form-->
+        <div class="w-screen sm:w-112 sm:rounded-md bg-white px-8 py-12 filter sm:drop-shadow-lg">
 
-    <BreezeGuestLayout>
+            <h1 class="text-xl font-medium text-center mb-8">Prijava</h1>
+
+            <form @submit.prevent="onSubmit">
+                <div class="mb-6">
+                    <InputGroup for="email" type="email" v-model="loginForm.email" :label="$t('common.email')" required autofocus autocomplete="off"></InputGroup>
+                </div>
+
+                <div class="mb-12">
+                    <InputGroup for="password" type="password" v-model="loginForm.password" :label="$t('common.password')" required autocomplete="off" :error="loginForm.errors.password" @blur="loginForm.clearErrors()"></InputGroup>
+                </div>
+
+                <div>
+                    <Button class="button button--stone-30 w-full" :loading="loginForm.processing" type="submit">Prijava</Button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!--BreezeGuestLayout>
         <Head title="Log in" />
 
         <BreezeValidationErrors class="mb-4" />
@@ -45,25 +61,25 @@
                 </BreezeButton>
             </div>
         </form>
-    </BreezeGuestLayout>
+    </BreezeGuestLayout-->
 </template>
 
-<!--script-->
-<script setup>
-import BreezeButton from '@/Components/Button.vue';
+<script>
+/*import BreezeButton from '@/Components/Button.vue';
 import BreezeCheckbox from '@/Components/Checkbox.vue';
 import BreezeGuestLayout from '@/Layouts/Guest.vue';
 import BreezeInput from '@/Components/Input.vue';
 import BreezeLabel from '@/Components/Label.vue';
-import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
-/*import Button from '@/Components/Button.vue'
+import BreezeValidationErrors from '@/Components/ValidationErrors.vue';*/
+import Button from '@/Components/Button.vue'
 import Checkbox from '@/Components/Checkbox.vue'
 import Input from '@/Components/Input.vue'
 import Label from '@/Components/Label.vue'
-import InputGroup from '@/Components/InputGroup.vue';*/
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import InputGroup from '@/Components/InputGroup.vue';
+//import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import { Head, Link } from '@inertiajs/inertia-vue3';
 
-defineProps({
+/*defineProps({
     canResetPassword: Boolean,
     status: String,
 });
@@ -78,9 +94,9 @@ const submit = () => {
     form.post(route('login'), {
         onFinish: () => form.reset('password'),
     });
-};
+};*/
 
-/*export default {
+export default {
 
     components: {
         Button,
@@ -90,7 +106,7 @@ const submit = () => {
         Head,
         Link,
         InputGroup
-    }
+    },
 
     data() {
         return {
@@ -98,7 +114,10 @@ const submit = () => {
                 email: undefined,
                 password: undefined,
                 remember: false
-            })
+            }),
+            email: 'E-pošta',
+            password: 'Geslo',
+            data: undefined
         }
     },
 
@@ -109,8 +128,11 @@ const submit = () => {
             })
         }
     }
-}*/
-
+}
 
 </script>
+
+<style lang="postcss">
+
+</style>
 

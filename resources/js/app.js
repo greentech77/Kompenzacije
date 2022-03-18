@@ -13,13 +13,14 @@ createInertiaApp({
     resolve: (name) => require(`./Pages/${name}.vue`),
     async setup({ el, app, props, plugin }) {
 
-        const data = await getLocale()
+        data = await getLocale()
         localStorage.setItem('locale', data.locale);
+        console.log(data.locale);
         const i18n = createI18n({...data})
 
         return createApp({ render: () => h(app, props) })
             .use(plugin)
-            //.use(i18n)
+            .use(i18n)
             .mixin({ methods: { route } })
             .mount(el);
     },

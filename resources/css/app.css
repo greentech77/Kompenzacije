@@ -1,3 +1,43 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@layer base {
+    strong {
+      @apply font-medium;
+    }
+  }
+  
+:root {
+    --main-bar-height: 80px;
+    --top-bar-height: 35px;
+    --bottom-bar-height: 50px;
+
+    --blue: #002640;
+    --blue-hover: #001727;
+
+    --stone: #3D667A;
+    --stone-hover: #244453;
+    --stone-15: #E2E8EB;
+    --stone-30: #C4D1D7;
+    --stone-30-hover: #ACBEC6;    
+    --stone-50: #98B0BC;
+
+    --cyan: #25A0B5;
+    --cyan-hover: #147A8B;
+
+    --orange: #ED7D31;
+    --orange-hover: #CC5301;
+  }
+
+  /*.bg-stone {
+    background-color: var(--stone);
+  }
+
+  .text-blue {
+    color: var(--blue);
+  }*/
+
+  /*body {
+      @apply antialiased font-sans font-normal text-blue leading-5;
+  }*/

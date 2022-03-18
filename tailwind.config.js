@@ -11,9 +11,42 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Roboto', ...defaultTheme.fontFamily.sans],
+                serif: ['Cormorant Garamond', ...defaultTheme.fontFamily.serif]
             },
+            colors: {
+                blue: {
+                    DEFAULT: 'var(--blue)',
+                    hover: 'var(--blue-hover)'
+                },
+                stone: {
+                    DEFAULT: 'var(--stone)',
+                    hover: 'var(--stone-hover)',
+                    '15': 'var(--stone-15)',
+                    '30': 'var(--stone-30)',
+                    '30-hover': 'var(--stone-30-hover)',
+                    '50': 'var(--stone-50)',
+                },
+                cyan: {
+                    DEFAULT: 'var(--cyan)',
+                    hover: 'var(--cyan-hover)'
+                },
+                orange: {
+                    DEFAULT: 'var(--orange)',
+                    hover: 'var(--orange-hover)'
+                }
+            },
+            spacing: {
+                '112': '28rem'
+            }   
         },
+        container: {
+            center: true,
+        }
+    },
+
+    corePlugins: {
+        float: false,
     },
 
     plugins: [require('@tailwindcss/forms')],

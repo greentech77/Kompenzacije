@@ -1,14 +1,36 @@
-<script setup>
-defineProps({
-    type: {
-        type: String,
-        default: 'submit',
-    },
-});
-</script>
-
 <template>
-    <button :type="type" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150">
-        <slot />
+    <button :type="type ?? `button`" class="button" :class="{ 'button--disabled': isDisabled }" :disabled="isDisabled">
+        <div class="button__spinner" v-if="loading"></div>
+        <div class="button__body" :class="{'button__body--hidden': hideSlot}">
+            <slot />
+        </div>
     </button>
 </template>
+
+<script>
+
+export default {
+
+    props: {
+        type: String,
+        loading: Boolean,
+        disabled: Boolean
+    },
+
+    computed: {
+        hideSlot() {
+            return this.loading
+        },
+        isDisabled() {
+            return this.disabled || this.loading || false 
+        }
+    },
+
+}
+</script>
+
+<style lang="postcss">
+
+    @import '../../css/button.css';
+
+</style>

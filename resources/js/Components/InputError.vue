@@ -1,11 +1,11 @@
-<script setup>
-defineProps(['message']);
-</script>
-
 <template>
-    <div v-show="message">
-        <p class="text-sm text-red-600">
-            {{ message }}
-        </p>
-    </div>
+    <div class="text-xs text-red-600 mt-1" v-if="!!error">{{ error }}</div>
 </template>
+
+<script>
+export default {
+    props: {
+        error: String
+    }
+}
+</script>

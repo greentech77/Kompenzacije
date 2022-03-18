@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthenticationController;
 
 use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\LocaleController;
 
 use Inertia\Inertia;
 
@@ -51,6 +52,10 @@ Route::middleware(['auth:admin'])->group(function () {
 Route::get('/admin/dashboard', [AdminController::class, 'getDashboard'])->name('admin.dashboard');
 
 });
+
+Route::get('/locale/{locale?}',[LocaleController::class, 'getLocale'])->name('locale.get');
+Route::post('/locale/{locale?}',[LocaleController::class, 'postLocale'])->name('locale.post');
+
 /**
  * Authentication routes
  */

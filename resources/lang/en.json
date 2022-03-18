@@ -1,0 +1,15 @@
+{
+    "common": {
+        "login": "Log In",
+        "register": "Register",
+        "home": "Home",
+        "terms": "Terms & Conditions",
+        "get-in-touch": "Get in Touch",
+        "continue": "Continue",
+        "email": "Email",
+        "company": "Company",
+        "pending": "Pending",
+        "active": "Active",
+        "rejected": "Rejected"
+    }
+}
