@@ -25,14 +25,14 @@
                 <div class="flex flex-row items-stretch border-b border-blue h-[var(--main-bar-height)] bg-white">
                     <div class="h-full px-4 flex w-full">
                         <div class="h-full flex items-center w-[210px]">
-                            <Link :href="route('admin.home')">
+                            <Link :href="route('home')">
                                 <!--img src="@/../images/BTN-logo.svg" alt="BTNaložbe logo"-->
                                 Domov
                             </Link>
                         </div>
                     </div>
                     <div class="pr-4 flex h-full items-center flex-none">
-                        <User :logout-url="route('admin.logout.post')"/>
+                        <User :logout-url="route('logout')"/>
                     </div>
                 </div>
                 <div class="border-b border-blue h-[var(--top-bar-height)] px-4 flex items-center space-x-4 bg-white">

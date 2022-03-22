@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthenticationController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\LocaleController;
@@ -33,10 +34,10 @@ use Inertia\Inertia;
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');*/
 
-Route::get('/dashboard', [UserController::class, 'getDashboard'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/entities', [UserController::class, 'getEntities'])->middleware(['auth', 'verified'])->name('entities');
+//Route::get('/dashboard', [UserController::class, 'getDashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+//Route::get('/entities', [UserController::class, 'getEntities'])->middleware(['auth', 'verified'])->name('entities');
 
-/*Route::middleware(['auth:verified'])->group(function () {
+Route::middleware(['auth:web'])->group(function () {
 	Route::get('/', function () {
 	        return redirect()->route('dashboard');
 	    })->name('home');
@@ -44,7 +45,7 @@ Route::get('/entities', [UserController::class, 'getEntities'])->middleware(['au
 Route::get('/dashboard', [UserController::class, 'getDashboard'])->name('dashboard');
 Route::get('/entities', [UserController::class, 'getEntities'])->name('entities');
 
-});*/
+});
 
 Route::middleware(['auth:admin'])->group(function () {
 	Route::get('/admin', function () {
@@ -61,9 +62,12 @@ Route::post('/locale/{locale?}',[LocaleController::class, 'postLocale'])->name('
 /**
  * Authentication routes
  */
-Route::get('/admin/login', [AuthenticationController::class, 'getLogin'])->name('admin.login');
+/*Route::get('/admin/login', [AuthenticationController::class, 'getLogin'])->name('admin.login');
 Route::post('/admin/login', [AuthenticationController::class, 'postLogin'])->name('admin.login.post');
 Route::post('/admin/logout', [AuthenticationController::class, 'postLogout'])->name('admin.logout.post');
+*/
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 
 require __DIR__.'/auth.php';
