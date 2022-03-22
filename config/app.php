@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'si',
+    'locale' => 'sl',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,13 +93,13 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'sl',
     
     /**
      * Available Locales
      */
 
-    'available_locales' => ['si', 'en'],
+    'available_locales' => ['sl', 'en'],
 
     /*
     |--------------------------------------------------------------------------

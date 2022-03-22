@@ -24687,7 +24687,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Button");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-    onSubmit: _cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+    onSubmit: _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $options.onSubmit && $options.onSubmit.apply($options, arguments);
     }, ["prevent"]))
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputGroup, {
@@ -24700,21 +24700,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     label: _ctx.$t('common.email'),
     required: "",
     autofocus: "",
-    autocomplete: "off"
+    autocomplete: "off",
+    error: $data.loginForm.errors.email,
+    onBlur: _cache[1] || (_cache[1] = function ($event) {
+      return $data.loginForm.clearErrors();
+    })
   }, null, 8
   /* PROPS */
-  , ["modelValue", "label"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputGroup, {
+  , ["modelValue", "label", "error"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputGroup, {
     "for": "password",
     type: "password",
     modelValue: $data.loginForm.password,
-    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
       return $data.loginForm.password = $event;
     }),
     label: _ctx.$t('common.password'),
     required: "",
     autocomplete: "off",
     error: $data.loginForm.errors.password,
-    onBlur: _cache[2] || (_cache[2] = function ($event) {
+    onBlur: _cache[3] || (_cache[3] = function ($event) {
       return $data.loginForm.clearErrors();
     })
   }, null, 8
@@ -25266,7 +25270,7 @@ var appName = ((_window$document$getE = window.document.getElementsByTagName('ti
   },
   setup: function setup(_ref) {
     return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var el, app, props, plugin, i18n;
+      var el, app, props, plugin, data, i18n;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -25278,7 +25282,6 @@ var appName = ((_window$document$getE = window.document.getElementsByTagName('ti
             case 3:
               data = _context.sent;
               localStorage.setItem('locale', data.locale);
-              console.log(data.locale);
               i18n = (0,vue_i18n__WEBPACK_IMPORTED_MODULE_5__.createI18n)(_objectSpread({}, data));
               return _context.abrupt("return", (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({
                 render: function render() {
@@ -25290,7 +25293,7 @@ var appName = ((_window$document$getE = window.document.getElementsByTagName('ti
                 }
               }).mount(el));
 
-            case 8:
+            case 7:
             case "end":
               return _context.stop();
           }

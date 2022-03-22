@@ -8,7 +8,7 @@
 
             <form @submit.prevent="onSubmit">
                 <div class="mb-6">
-                    <InputGroup for="email" type="email" v-model="loginForm.email" :label="$t('common.email')" required autofocus autocomplete="off"></InputGroup>
+                    <InputGroup for="email" type="email" v-model="loginForm.email" :label="$t('common.email')" required autofocus autocomplete="off" :error="loginForm.errors.email" @blur="loginForm.clearErrors()"></InputGroup>
                 </div>
 
                 <div class="mb-12">

@@ -11,7 +11,7 @@ export async function get(locale) {
         messages[l] = undefined
     });
     messages[data.locale] = data.translations;
-
+    
     return {
         locale: data.locale,
         fallbackLocale: data.fallbackLocale,
