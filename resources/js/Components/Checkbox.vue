@@ -1,30 +1,37 @@
-<script setup>
-import { computed } from 'vue';
+<template>
+    <input class="rounded !border-none !ring-0 bg-stone-30 checked:bg-stone checked:hover:bg-stone-hover checked:focus:bg-stone-hover mr-3" :id="name" type="checkbox" v-model="proxy"> 
+    <slot name="label">
+        <label class="hover:text-blue-hover" :for="name">{{label}}</label>
+    </slot>
+</template>
 
-const emit = defineEmits(['update:checked']);
+<script>
+export default {
+    emits: ['update:modelValue'],
 
-const props = defineProps({
-    checked: {
-        type: [Array, Boolean],
-        default: false,
-    },
-    value: {
-        default: null,
-    },
-});
-
-const proxyChecked = computed({
-    get() {
-        return props.checked;
+    props: {
+        modelValue: Boolean,
+        label: String,
+        name: String
     },
 
-    set(val) {
-        emit("update:checked", val);
+    computed: {
+        proxy: {
+            get() {
+                return this.modelValue
+            },
+            set(value) {
+                this.$emit('update:modelValue', value)
+            },
+        },
     },
-});
+}
 </script>
 
-<template>
-    <input type="checkbox" :value="value" v-model="proxyChecked"
-           class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-</template>
+<style lang="postcss" scoped>
+
+    [type=checkbox] {
+        box-shadow: none !important;
+    }
+
+</style>

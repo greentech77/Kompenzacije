@@ -34,15 +34,17 @@ use Inertia\Inertia;
 })->middleware(['auth', 'verified'])->name('dashboard');*/
 
 Route::get('/dashboard', [UserController::class, 'getDashboard'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/entities', [UserController::class, 'getEntities'])->middleware(['auth', 'verified'])->name('entities');
 
-Route::middleware(['auth:user'])->group(function () {
+/*Route::middleware(['auth:verified'])->group(function () {
 	Route::get('/', function () {
 	        return redirect()->route('dashboard');
 	    })->name('home');
 
-Route::get('/dashboard', [AdminController::class, 'getDashboard'])->name('dashboard');
+Route::get('/dashboard', [UserController::class, 'getDashboard'])->name('dashboard');
+Route::get('/entities', [UserController::class, 'getEntities'])->name('entities');
 
-});
+});*/
 
 Route::middleware(['auth:admin'])->group(function () {
 	Route::get('/admin', function () {

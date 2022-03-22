@@ -96,7 +96,7 @@ export default {
 
 <style lang="postcss">
 
-    input {
+    .input {
         @apply w-full px-3 py-2 border border-gray-300 appearance-none rounded;
         @apply focus:outline-none focus:border-stone focus:ring-0 filter focus:shadow;
         @apply transition duration-300;

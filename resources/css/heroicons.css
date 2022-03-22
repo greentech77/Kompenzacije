@@ -1,0 +1,11 @@
+.icon {
+    @apply w-5 h-5 inline-block text-blue;
+
+    &--button {
+        @apply cursor-pointer;
+        @apply hover:text-gray-600;
+    }
+    &--white {
+        @apply text-white;
+    }
+}

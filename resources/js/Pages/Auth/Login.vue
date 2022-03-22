@@ -65,36 +65,13 @@
 </template>
 
 <script>
-/*import BreezeButton from '@/Components/Button.vue';
-import BreezeCheckbox from '@/Components/Checkbox.vue';
-import BreezeGuestLayout from '@/Layouts/Guest.vue';
-import BreezeInput from '@/Components/Input.vue';
-import BreezeLabel from '@/Components/Label.vue';
-import BreezeValidationErrors from '@/Components/ValidationErrors.vue';*/
 import Button from '@/Components/Button.vue'
 import Checkbox from '@/Components/Checkbox.vue'
 import Input from '@/Components/Input.vue'
 import Label from '@/Components/Label.vue'
 import InputGroup from '@/Components/InputGroup.vue';
-//import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
 import { Head, Link } from '@inertiajs/inertia-vue3';
 
-/*defineProps({
-    canResetPassword: Boolean,
-    status: String,
-});
-
-const form = useForm({
-    email: '',
-    password: '',
-    remember: false
-});
-
-const submit = () => {
-    form.post(route('login'), {
-        onFinish: () => form.reset('password'),
-    });
-};*/
 
 export default {
 
@@ -112,12 +89,8 @@ export default {
         return {
             loginForm: this.$inertia.form({
                 email: undefined,
-                password: undefined,
-                remember: false
-            }),
-            email: 'E-pošta',
-            password: 'Geslo',
-            data: undefined
+                password: undefined
+            })
         }
     },
 
