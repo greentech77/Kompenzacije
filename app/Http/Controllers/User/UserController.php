@@ -7,6 +7,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Entities\EntityService;
 use App\Services\Entities\Models\Entity;
+use ProtoneMedia\LaravelQueryBuilderInertiaJs\InertiaTable;
+//use Spatie\QueryBuilder\AllowedFilter;
+//use Spatie\QueryBuilder\QueryBuilder;
 
 class UserController extends Controller
 {
@@ -21,11 +24,22 @@ class UserController extends Controller
                 ]
             ]
         ]);
+
+
     }
 
     public function getEntities(Request $request, EntityService $entityService) 
     {
         $entities = $entityService->entities();
+        /*return Inertia::render('Entities', [
+            'entities' => $entities,
+            'breadcrumb' =>[
+                [
+                    'label' => 'Podjetja',
+                ]
+            ]
+        ]);*/
+
         return Inertia::render('Entities', [
             'entities' => $entities,
             'breadcrumb' =>[
@@ -33,6 +47,13 @@ class UserController extends Controller
                     'label' => 'Podjetja',
                 ]
             ]
-        ]);
+        ])->table(function (InertiaTable $table) {
+            $table->addSearch('company_name', 'Ime podjetja');
+        
+            /*$table->addSearchRows([
+                'email' => 'Email',
+                'job_title' => 'Job Title',
+            ]);*/
+        });
     }
 }
