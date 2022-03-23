@@ -15,4 +15,6 @@ class Entity extends Model
      * @var string
      */
     protected $table = 'entities';
+
+    protected $fillable = ['address', 'post_num', 'post_town', 'email', 'fax', 'mobile', 'phone', 'vat_num', 'registration_num', 'bank_account'];
 }

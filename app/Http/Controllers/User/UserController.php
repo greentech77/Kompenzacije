@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\User;
 
 use Inertia\Inertia;
+use Illuminate\Support\Arr;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Entities\EntityService;
-use App\Services\Entities\Models\Entity;
-use ProtoneMedia\LaravelQueryBuilderInertiaJs\InertiaTable;
-//use Spatie\QueryBuilder\AllowedFilter;
-//use Spatie\QueryBuilder\QueryBuilder;
+use App\Models\Entity;
 
 class UserController extends Controller
 {
@@ -31,15 +29,6 @@ class UserController extends Controller
     public function getEntities(Request $request, EntityService $entityService) 
     {
         $entities = $entityService->entities();
-        /*return Inertia::render('Entities', [
-            'entities' => $entities,
-            'breadcrumb' =>[
-                [
-                    'label' => 'Podjetja',
-                ]
-            ]
-        ]);*/
-
         return Inertia::render('Entities', [
             'entities' => $entities,
             'breadcrumb' =>[
@@ -47,13 +36,35 @@ class UserController extends Controller
                     'label' => 'Podjetja',
                 ]
             ]
-        ])->table(function (InertiaTable $table) {
-            $table->addSearch('company_name', 'Ime podjetja');
-        
-            /*$table->addSearchRows([
-                'email' => 'Email',
-                'job_title' => 'Job Title',
-            ]);*/
-        });
+        ]);
+    }
+
+    public function getEntity(Request $request, EntityService $entityService, $id) 
+    {
+        $entity =  $entityService->entity($id);
+        return Inertia::render('Entity', [
+            'entity' => $entity,
+            'breadcrumb' =>[
+                [
+                    'label' => 'Podjetja',
+                    'route' => route('entities')
+                ], [
+                    'label' => $entity->company_name,
+                ]
+            ]
+        ]);
+    }
+
+    public function patchEntity(Request $request, EntityService $entityService, $id) 
+    {
+        $data = $request->except('action');
+        print_r($data);
+        switch ($request->action) {
+            case 'update':
+                $entityService->patchEntity($data['id'], Arr::except($data, 'id'));
+                break;
+        }
+
+        return redirect()->back();
     }
 }

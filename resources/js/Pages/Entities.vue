@@ -1,5 +1,5 @@
 <template>
-    <Head title="Člani sklada"/>
+    <Head title="Podjetja"/>
 
     <div class="w-full bg-stone-15 p-8 rounded-md">
         <table class="bg-white w-full divide-y divide-stone">
@@ -43,34 +43,6 @@
             </tbody>
         </table>
         <pagination class="mt-6" :links="entities.links" />
-
-        <!--Table
-            :filters="queryBuilderProps.filters"
-            :search="queryBuilderProps.search"
-            :columns="queryBuilderProps.columns"
-            :on-update="setQueryBuilder"
-            :meta="users"
-        >
-            <template #head>
-            <tr>
-                <th @click.prevent="sortBy('centity.ompany_name')">Ime podjetja</th>
-                <th v-show="showColumn('entity.post_town')" @click.prevent="sortBy('post_town')">Pošta</th>
-                <th v-show="showColumn('entity.vat_num')" @click.prevent="sortBy('vat_num')">Davčna številka</th>
-                <th v-show="showColumn('entity.registration_num')" @click.prevent="sortBy('registration_num')">Matična številka</th>
-                <th v-show="showColumn('entity.email')" @click.prevent="sortBy('email')">Email</th>
-            </tr>
-            </template>
-
-            <template #body>
-            <tr v-for="entity in entities.data" :key="entity.vat_num">
-                <td>{{ entity.company_name }}</td>
-                <td v-show="showColumn('entity.post_town')">{{ entity.post_town }}</td>
-                <td v-show="showColumn('entity.vat_num')">{{ entity.vat_num }}</td>
-                <td v-show="showColumn('entity.registration_num')">{{ entity.registration_num }}</td>
-                <td v-show="showColumn('entity.email')">{{ entity.email }}</td>
-            </tr>
-            </template>
-        </Table-->
     </div>
 
 </template>
@@ -80,10 +52,8 @@
 import { Head, Link } from '@inertiajs/inertia-vue3'
 import AdminLayout from '@/mixins/adminLayout'
 import Pagination from '@/Components/Pagination'
-//import { InteractsWithQueryBuilder, Tailwind2 } from '@protonemedia/inertiajs-tables-laravel-query-builder';
 
 export default {
-    //mixins: [InteractsWithQueryBuilder],
 
     layout: AdminLayout,
 
@@ -91,7 +61,6 @@ export default {
         Head,
         Link,
         Pagination,
-        //Table: Tailwind2.Table
     },
 
     props: {

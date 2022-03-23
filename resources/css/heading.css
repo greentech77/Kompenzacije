@@ -1,0 +1,35 @@
+@tailwind components;
+
+.heading {
+    @apply font-medium;
+
+    &--1 {
+        @apply text-3xl font-medium mb-6;
+    }
+    &--2 {
+        @apply text-xl font-medium;
+    }
+    &--3 {
+        @apply text-lg font-medium;
+    }
+    &--1&--after, 
+    &--2&--after,
+    &--3&--after {
+        @apply mb-6;
+    }
+    &--4 {
+        @apply mb-4 font-medium;
+    }
+    &--4&--after {
+        @apply mb-4;
+    }
+    &--center {
+        @apply text-center;
+    }
+    &--blue {
+        @apply text-blue;
+    }
+    &--uppercase {
+        @apply uppercase;
+    }
+}

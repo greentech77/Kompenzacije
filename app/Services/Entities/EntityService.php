@@ -21,4 +21,8 @@ class EntityService {
         
         return $entity;
     }
+
+    public function patchEntity($id, $data) {
+        return Entity::find($id)->update($data);
+    }
 }
