@@ -1,7 +1,9 @@
 <template>
     <Head title="Podjetja"/>
-
     <div class="w-full bg-stone-15 p-8 rounded-md">
+
+        <Button class="button button--stone align-right" @click="addEntity()">Dodaj podjetje</Button>
+
         <table class="bg-white w-full divide-y divide-stone">
             <thead class="text-white uppercase tracking-wider font-medium text-xs text-left">
                 <tr>
@@ -52,6 +54,7 @@
 import { Head, Link } from '@inertiajs/inertia-vue3'
 import AdminLayout from '@/mixins/adminLayout'
 import Pagination from '@/Components/Pagination'
+import Button from '@/Components/Button.vue'
 
 export default {
 
@@ -61,6 +64,7 @@ export default {
         Head,
         Link,
         Pagination,
+        Button
     },
 
     props: {
@@ -72,6 +76,9 @@ export default {
             this.$inertia.visit(this.route('entities.entity', {
                 id: entity.id
             }))
+        },
+        addEntity() {
+            this.$inertia.get(this.route('entities.entity.new'));
         }
     }
 }

@@ -46,6 +46,7 @@ Route::get('/dashboard', [UserController::class, 'getDashboard'])->name('dashboa
 Route::get('/entities', [UserController::class, 'getEntities'])->name('entities');
 Route::get('/entities/{id}', [UserController::class, 'getEntity'])->name('entities.entity');
 Route::patch('/entities/{id}', [UserController::class, 'patchEntity'])->name('entities.entity.patch');
+Route::get('/entities/new', [UserController::class, 'newEntity'])->name('entities.entity.new');
 
 });
 

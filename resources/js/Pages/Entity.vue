@@ -8,29 +8,6 @@
             </div>
 
             <div class="lg:w-3/4 w-full mt-4 lg:mt-0 ml-0 sm:ml-10 lg:ml-0 space-y-4">
-                <!-- <section class="bg-white rounded-md p-6 filter drop-shadow space-y-4" v-if="form.type == 'enterprise'">
-                    <div class="flex items-center">
-                        <h2 class="text-lg font-medium flex-auto">Podatki o podjetju</h2>
-                        <button class="button button--icon pl-3 text-stone hover:text-stone-hover" @click="toggleEditMode('enterpriseData')">
-                            <PencilAltIcon class="h-6 w-6"/>
-                        </button>
-                    </div>
-                    <div>
-                        <InputGroup v-model="form.entitiable.address.address" label="Ulica in hišna številka" :error="form.errors['entitiable.address.address']" @change="form.clearErrors('entitiable.address.address')" :edit="editMode['address']"/> 
-                    </div>
-                    <div class="flex space-y-4 md:space-y-0 md:space-x-4 flex-wrap md:flex-nowrap">
-                        <InputGroup class="w-full md:w-1/3 flex-auto" v-model="form.entitiable.address.post_code" label="Poštna številka" :error="form.errors['entitiable.address.post_code']" @change="form.clearErrors('entitiable.address.post_code')" :edit="editMode['address']"/>
-                        <InputGroup class="w-full md:w-2/3 flex-auto" v-model="form.entitiable.address.post_name" label="Pošta" :error="form.errors['entitiable.address.post_name']" @change="form.clearErrors('entitiable.address.post_name')" :edit="editMode['address']"/>
-                    </div>
-                    <div>
-                        <InputGroup v-model="form.entitiable.address.country" label="Država" type="select" :options="countries" :error="form.errors['entitiable.address.country']" @change="form.clearErrors('entitiable.address.country')" :edit="editMode['address']"/>
-                    </div>
-                    <div class="flex justify-end space-x-4" v-if="editMode['address']">
-                        <Button class="button button--white" @click="onBack" :disabled="form.processing">Prekliči</Button>
-                        <Button class="button button--stone" type="submit" :loading="form.processing">Shrani</Button>
-                    </div>
-                </section> -->
-
                 <section class="bg-white rounded-md p-6 filter drop-shadow relative z-10">
                     <form @submit.prevent="onSubmitSection(formdata)" class="space-y-4">
                         <div class="flex items-center">
@@ -61,13 +38,9 @@
                         </div>
                     </form>
                 </section>
-
             </div>
-
         </section>        
-
     </div>
-
 </template>
 
 <script>

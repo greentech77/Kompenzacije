@@ -67,4 +67,15 @@ class UserController extends Controller
 
         return redirect()->back();
     }
+
+    public function newEntity(Request $request) 
+    {
+        return Inertia::render('EntityNew', [
+            'breadcrumb' =>[
+                [
+                    'label' => 'Dodaj podjetje',
+                ]
+            ]
+        ]);
+    }
 }
