@@ -2,7 +2,11 @@
     <Head title="Podjetja"/>
     <div class="w-full bg-stone-15 p-8 rounded-md">
 
-        <Button class="button button--stone align-right" @click="addEntity()">Dodaj podjetje</Button>
+        <div class="flex justify-end space-x-4 mb-6">
+
+        <Button class="button button--stone" @click="addEntity()">Dodaj podjetje</Button>
+
+        </div>
 
         <table class="bg-white w-full divide-y divide-stone">
             <thead class="text-white uppercase tracking-wider font-medium text-xs text-left">
@@ -78,7 +82,7 @@ export default {
             }))
         },
         addEntity() {
-            this.$inertia.get(this.route('entities.entity.new'));
+            this.$inertia.get(this.route('entities.entity.register'));
         }
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\Auth\RegisterController;
 
 use Inertia\Inertia;
 
@@ -46,7 +47,19 @@ Route::get('/dashboard', [UserController::class, 'getDashboard'])->name('dashboa
 Route::get('/entities', [UserController::class, 'getEntities'])->name('entities');
 Route::get('/entities/{id}', [UserController::class, 'getEntity'])->name('entities.entity');
 Route::patch('/entities/{id}', [UserController::class, 'patchEntity'])->name('entities.entity.patch');
-Route::get('/entities/new', [UserController::class, 'newEntity'])->name('entities.entity.new');
+Route::get('/entities/entity/new', [UserController::class, 'registerEntity'])->name('entities.entity.register');
+
+/**
+ * Post za enterprise data step registracijo 
+ */
+Route::post('/register/data', [RegisterController::class, 'postEntityData'])->name('register.data');
+
+
+/**
+ * Final post za enterprise registracijo
+ */
+
+Route::post('/register/entity', [RegisterController::class, 'postEntity'])->name('register.entity');
 
 });
 

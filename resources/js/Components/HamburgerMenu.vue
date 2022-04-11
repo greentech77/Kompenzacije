@@ -27,15 +27,13 @@
 
 <script>
 import { MenuIcon, XIcon } from '@heroicons/vue/outline'
-import LocaleSwitch from '@/Components/LocaleSwitch.vue'
 import { Inertia } from '@inertiajs/inertia'
 
 export default {
 
     components: {
         MenuIcon,
-        XIcon,
-        LocaleSwitch
+        XIcon
     },
     
     data() {

@@ -21,15 +21,17 @@ class CreateEntitiesTable extends Migration
             $table->string('address');
             $table->integer('post_num', false, true)->length(4);
             $table->char('post_town');
-            $table->integer('vat_num', false, true)->length(8);
+            $table->string('vat_num', false, true)->length(10);
             $table->bigInteger('registration_num', false, true)->length(11);
             $table->char('bank_account');
+            $table->char('bank_bic');
+            $table->char('bank_name');
             $table->char('email', 50)->unique();
-            $table->char('fax', 20);
-            $table->char('mobile', 20);
+            $table->char('fax', 20)->nullable();
+            $table->char('mobile', 20)->nullable();
             $table->char('phone', 20);
-            $table->boolean('show_email');
-            $table->boolean('show_fax');
+            $table->boolean('show_email')->nullable()->dafault(1);
+            $table->boolean('show_fax')->nullable()->dafault(1);
             $table->timestamps();
         });
     }

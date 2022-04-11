@@ -27,6 +27,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Response::macro('api', function ($value = null) {
+            if ($value == null) {
+                return response('', 204);
+            } else {
+                return response([
+                    'status' => 'success',
+                    'data' => $value
+                ]);
+            }
+        });
+        
         Collection::macro('snakeCaseKeys', function () {
             return $this->mapWithKeys(function($value, $key) {
                 return [

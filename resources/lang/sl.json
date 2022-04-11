@@ -12,5 +12,10 @@
         "pending": "V potrjevanju",
         "active": "Aktiven",
         "rejected": "Zavrnjen"
+    },
+    "header": {
+        "register": "Dodaj novo podjetje",
+        "login": "@:common.login",
+        "home": "@:common.home"
     }
 }

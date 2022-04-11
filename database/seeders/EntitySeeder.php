@@ -25,6 +25,8 @@ class EntitySeeder extends Seeder
             'registration_num' => 5045657000,
             'post_town' => 'ROGAŠKA',
             'bank_account' => '',
+            'bank_bic' => '',
+            'bank_name' => '',
             'email' => 'mira.kralj@stek-rogaska.si',
             'fax' => '/',
             'phone' => '03/8180177',

@@ -11,27 +11,43 @@
                 <section class="bg-white rounded-md p-6 filter drop-shadow relative z-10">
                     <form @submit.prevent="onSubmitSection(formdata)" class="space-y-4">
                         <div class="flex items-center">
-                            <h2 class="text-lg font-medium flex-auto">Naslov in sedež podjetja</h2>
+                            <h2 class="text-lg font-medium flex-auto">Osnovni podatki</h2>
                             <button class="button button--icon pl-3 text-stone hover:text-stone-hover" :disabled="formdata.edit" @click.prevent="toggleEditMode(formdata)">
                                 <PencilAltIcon class="h-6 w-6"/>
                             </button>
+                        </div>
+                        <div class="flex space-y-4 md:space-y-0 md:space-x-4 flex-wrap md:flex-nowrap">
+                            <InputGroup class="w-full md:w-1/4 flex-auto" v-model="formdata.form.vat_num" label="Davčna številka" :error="formdata.form.errors['vat_num']" @change="formdata.form.clearErrors('vat_num')" :edit="formdata.edit"/> 
+                            <InputGroup class="w-full md:w-1/4 flex-auto" v-model="formdata.form.registration_num" label="Matična številka" :error="formdata.form.errors['registration_num']" @change="formdata.form.clearErrors('registration_num')" :edit="formdata.edit"/>
+                            <InputGroup class="w-full md:w-1/4 flex-auto" v-model="formdata.form.name" label="Ime" :error="formdata.form.errors['name']" @change="formdata.form.clearErrors('name')" :edit="formdata.edit"/>
+                            <InputGroup class="w-full md:w-1/4 flex-auto" v-model="formdata.form.lastname" label="Priimek" :error="formdata.form.errors['lastname']" @change="formdata.form.clearErrors('lastname')" :edit="formdata.edit"/>
+                        </div>
+                        <div class="flex items-center">
+                            <h2 class="text-lg font-medium flex-auto">Kontaktni podatki</h2>
+                        </div>
+                        <div class="flex space-y-4 md:space-y-0 md:space-x-4 flex-wrap md:flex-nowrap">
+                            <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.email" label="E-mail" :error="formdata.form.errors['email']" @change="formdata.form.clearErrors('email')" :edit="formdata.edit"/> 
+                            <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.mobile" label="GSM" :error="formdata.form.errors['mobile']" @change="formdata.form.clearErrors('mobile')" :edit="formdata.edit"/>
+                            <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.phone" label="Telefon" :error="formdata.form.errors['phone']" @change="formdata.form.clearErrors('phone')" :edit="formdata.edit"/>
+                        </div>
+                        <div class="flex items-center">
+                            <h2 class="text-lg font-medium flex-auto">Naslov in sedež podjetja</h2>
                         </div>
                         <div class="flex space-y-4 md:space-y-0 md:space-x-4 flex-wrap md:flex-nowrap">
                             <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.address" label="Ulica in hišna številka" :error="formdata.form.errors['address']" @change="formdata.form.clearErrors('address')" :edit="formdata.edit"/> 
                             <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.post_num" label="Poštna številka" :error="formdata.form.errors['post_num']" @change="formdata.form.clearErrors('post_num')" :edit="formdata.edit"/>
                             <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.post_town" label="Pošta" :error="formdata.form.errors['post_town']" @change="formdata.form.clearErrors('post_town')" :edit="formdata.edit"/>
                         </div>
-                        <div class="flex space-y-4 md:space-y-0 md:space-x-4 flex-wrap md:flex-nowrap">
-                            <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.email" label="E-mail" :error="formdata.form.errors['email']" @change="formdata.form.clearErrors('email')" :edit="formdata.edit"/> 
-                            <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.fax" label="Fax" :error="formdata.form.errors['fax']" @change="formdata.form.clearErrors('fax')" :edit="formdata.edit"/>
-                            <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.mobile" label="GSM" :error="formdata.form.errors['mobile']" @change="formdata.form.clearErrors('mobile')" :edit="formdata.edit"/>
-                            <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.phone" label="Telefon" :error="formdata.form.errors['phone']" @change="formdata.form.clearErrors('phone')" :edit="formdata.edit"/>
+                        <div class="flex items-center">
+                            <h2 class="text-lg font-medium flex-auto">Transakcijski račun</h2>
                         </div>
                         <div class="flex space-y-4 md:space-y-0 md:space-x-4 flex-wrap md:flex-nowrap">
-                            <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.vat_num" label="Davčna številka" :error="formdata.form.errors['vat_num']" @change="formdata.form.clearErrors('vat_num')" :edit="formdata.edit"/> 
-                            <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.registration_num" label="Matična številka" :error="formdata.form.errors['registration_num']" @change="formdata.form.clearErrors('registration_num')" :edit="formdata.edit"/>
-                            <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.bank_account" label="Bančni račun" :error="formdata.form.errors['bank_account']" @change="formdata.form.clearErrors('bank_account')" :edit="formdata.edit"/>
+                            <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.bank_account" label="IBAN številka računa" :error="formdata.form.errors['bank_account']" @change="formdata.form.clearErrors('bank_account')" :edit="formdata.edit"/> 
+                            <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.bank_bic" label="BIC banke" :error="formdata.form.errors['bank_bic']" @change="formdata.form.clearErrors('bank_bic')" :edit="formdata.edit"/>
+                            <InputGroup class="w-full md:w-1/3 flex-auto" v-model="formdata.form.bank_name" label="Naziv banke" :error="formdata.form.errors['bank_name']" @change="formdata.form.clearErrors('bank_name')" :edit="formdata.edit"/>
                         </div>
+                        
+                        
                         <div class="flex justify-end space-x-4" v-if="formdata.edit">
                             <Button class="button button--white" @click.prevent="resetSection(formdata)" :disabled="formdata.form.processing">Prekliči</Button>
                             <Button class="button button--stone" type="submit" :loading="formdata.form.processing">Shrani</Button>

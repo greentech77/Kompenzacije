@@ -12,5 +12,10 @@
         "pending": "Pending",
         "active": "Active",
         "rejected": "Rejected"
+    },
+    "header": {
+        "register": "Add new company",
+        "login": "@:common.login",
+        "home": "@:common.home"
     }
 }
