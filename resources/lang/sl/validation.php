@@ -124,7 +124,7 @@ return [
         'array' => 'The :attribute must contain :size items.',
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
-    'string' => 'The :attribute must be a string.',
+    'string' => 'Polje :attribute mora biti text.',
     'timezone' => 'The :attribute must be a valid timezone.',
     'unique' => 'The :attribute has already been taken.',
     'uploaded' => 'The :attribute failed to upload.',
@@ -171,7 +171,10 @@ return [
         'postTown' => 'pošta',
         'bankAccount' => 'IBAN številka računa',
         'bankBIC' => 'BIC banke',
-        'bankName' => 'naziv banke'
+        'bankName' => 'naziv banke',
+        'compenzationDate' => 'datum kompenzacije',
+        'compenzationAmount' => 'znesek kompenzacije',
+        'compenzationEntities.*' => 'stranka',
     ],
 
 ];

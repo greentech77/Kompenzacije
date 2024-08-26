@@ -81,7 +81,7 @@ class RegisterController extends Controller
         }*/
 
         $request->validate(array_merge(
-            $validation->entityData('entityData'),
+            $validation->entityData('entityData')
         ));
 
         $input = $request->input();

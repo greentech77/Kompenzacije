@@ -22,6 +22,13 @@ class EntityService {
         return $entity;
     }
 
+    public function getEntitiesIdName()
+    {
+        $entities = Entity::get(['id', 'company_name']);
+        
+        return $entities;
+    }
+
     public function patchEntity($id, $data) {
         return Entity::find($id)->update($data);
     }

@@ -11,11 +11,15 @@
         "company": "Podjetje",
         "pending": "V potrjevanju",
         "active": "Aktiven",
-        "rejected": "Zavrnjen"
+        "rejected": "Zavrnjen",
+        "select_entity": "Izberi stranko"
     },
     "header": {
         "register": "Dodaj novo podjetje",
         "login": "@:common.login",
         "home": "@:common.home"
+    },
+    "form": {
+        "select_entity": "Izberi stranko"
     }
 }

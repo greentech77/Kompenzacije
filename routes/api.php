@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutocompleteController;
+use App\Http\Controllers\Admin\AdminApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('post-code', [AutocompleteController::class, 'getPost'])->name('api.post-code');
 
 Route::get('verify-iban', [AutocompleteController::class, 'getVerifyIBAN'])->name('api.verify-iban');
+
+Route::prefix('api')->group(function () {
+    Route::get('/entities', [AdminApiController::class, 'getEntities'])->name('admin.api.entities');
+});

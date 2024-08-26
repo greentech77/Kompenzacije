@@ -81,6 +81,32 @@ class Validation {
         return $this->prependKeys($prepend, $validation);
     }
 
+    /**
+     * Generira rules za stranke kompenzacije
+     *
+     * @return array
+     */
+    private function compenzationEntities($prepend = null) {
+        $rules = [
+            'compenzationEntities.*' => ['required']
+        ];
+        return $this->prependKeys($prepend, $rules);
+    }
+
+    /**
+     * Generira validacijo za 1. step dodajanja kompenzacij / compenzation data
+     *
+     * @return void
+     */
+    public function CompenzationData($prepend = null) {
+        $validation = array_merge([
+            'compenzationDate' => ['required', 'string'],
+            'compenzationAmount' => ['required'],
+        ], $this->compenzationEntities());
+
+        return $this->prependKeys($prepend, $validation);
+    }
+
 
 
 }

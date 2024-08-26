@@ -57,6 +57,37 @@
             </div>
         </section>        
     </div>
+
+    <div class="max-w-8xl mx-auto w-full flex-auto justify-center py-12">
+        <h2 class="text-lg mb-5 font-medium flex-auto">Kompenzacije</h2>
+        <div class="w-full bg-stone-15 p-8 rounded-md">
+            
+            <table class="bg-white w-full divide-y divide-stone">
+            <thead class="text-white uppercase tracking-wider font-medium text-xs text-left">
+                <tr>
+                    <th scope="col" class="pl-6 py-3 rounded-tl-md bg-blue">
+                        Ime podjetja
+                    </th>
+                    <th scope="col" class="pl-6 py-3 bg-blue">
+                        Pošta
+                    </th>
+                    <th scope="col" class="pl-6 py-3 bg-blue">
+                        Davčna številka
+                    </th>
+                    <th scope="col" class="pl-6 py-3 bg-blue">
+                        Matična številka
+                    </th>
+                    <th scope="col" class="pl-6 py-3 bg-blue">
+                        Email
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-stone">
+            </tbody>
+               
+            </table>
+        </div>
+    </div>
 </template>
 
 <script>

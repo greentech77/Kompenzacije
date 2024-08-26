@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Compenzation\CompenzationController;
 
 use Inertia\Inertia;
 
@@ -49,6 +50,10 @@ Route::get('/entities/{id}', [UserController::class, 'getEntity'])->name('entiti
 Route::patch('/entities/{id}', [UserController::class, 'patchEntity'])->name('entities.entity.patch');
 Route::get('/entities/entity/new', [UserController::class, 'registerEntity'])->name('entities.entity.register');
 
+Route::get('/compenzations', [CompenzationController::class, 'getCompenzations'])->name('compenzations');
+Route::get('/compenzations/{id}', [CompenzationController::class, 'getCompenzation'])->name('compenzations.compenzation');
+Route::get('/compenzations/compenzation/new', [CompenzationController::class, 'addCompenzation'])->name('compenzations.compenzation.new');
+
 /**
  * Post za enterprise data step registracijo 
  */
@@ -60,6 +65,18 @@ Route::post('/register/data', [RegisterController::class, 'postEntityData'])->na
  */
 
 Route::post('/register/entity', [RegisterController::class, 'postEntity'])->name('register.entity');
+
+/**
+ * Post za compenzation data step 
+ */
+Route::post('/compenzation/data', [CompenzationController::class, 'postCompenzationData'])->name('compenzation.data');
+
+
+/**
+ * Final post za compenzation vnos
+ */
+
+Route::post('/compenzation/add', [CompenzationController::class, 'postCompenzation'])->name('compenzation.add');
 
 });
 

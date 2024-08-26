@@ -15,6 +15,11 @@
                             <OfficeBuildingIcon class="w-6 h-6 inline-block mr-4"/>Podjetja
                         </Link>
                     </li>
+                    <li class="hover:text-gray-400 text-sm uppercase tracking-wider" :class="{'text-orange hover:text-orange-hover': activeRoute('compenzations')}">
+                        <Link :href="route('compenzations')">
+                            <CurrencyEuroIcon class="w-6 h-6 inline-block mr-4"/>Kompenzacije
+                        </Link>
+                    </li>
                 </ul>
             </nav>
         </Sidebar>
@@ -64,7 +69,7 @@
 import { Link } from '@inertiajs/inertia-vue3'
 import Sidebar from '@/Layouts/Sidebar.vue'
 import MainBlock from '@/Layouts/MainBlock.vue'
-import { ChevronRightIcon, HomeIcon, UserIcon, DocumentReportIcon, ChartPieIcon, OfficeBuildingIcon } from '@heroicons/vue/outline';
+import { ChevronRightIcon, HomeIcon, UserIcon, DocumentReportIcon, ChartPieIcon, OfficeBuildingIcon, CurrencyEuroIcon } from '@heroicons/vue/outline';
 import currentRoute from '@/mixins/currentRoute'
 import User from '@/Components/User.vue'
 
@@ -82,6 +87,7 @@ export default {
         DocumentReportIcon,
         ChartPieIcon,
         OfficeBuildingIcon,
+        CurrencyEuroIcon,
         User
     },
 

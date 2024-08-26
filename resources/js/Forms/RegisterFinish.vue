@@ -27,7 +27,7 @@
 
         <section class="flex justify-end space-x-4">
             <Button class="button button--white" @click="onBack" :disabled="form.processing">Nazaj</Button>
-            <Button class="button button--stone" type="submit" :loading="form.processing">Zaključi registracijo</Button>
+            <Button class="button button--stone" type="submit" :loading="form.processing">Zaključi vnos</Button>
         </section>
 
     </form>
