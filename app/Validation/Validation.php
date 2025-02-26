@@ -98,7 +98,7 @@ class Validation {
      *
      * @return void
      */
-    public function CompenzationData($prepend = null) {
+    public function compenzationData($prepend = null) {
         $validation = array_merge([
             'compenzationDate' => ['required', 'string'],
             'compenzationAmount' => ['required'],

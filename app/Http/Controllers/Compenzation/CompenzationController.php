@@ -44,10 +44,10 @@ class CompenzationController extends Controller
         ]);
     }
 
-    public function addCompenzation(EntityService $entityService) 
+    public function newCompenzation(EntityService $entityService) 
     {
         $entities = $entityService->getEntitiesIdName();
-        return Inertia::render('AddCompenzation', [
+        return Inertia::render('NewCompenzation', [
             'entities' => $entities,
             'breadcrumb' =>[
                 [
@@ -62,8 +62,40 @@ class CompenzationController extends Controller
      */
     public function postCompenzationData(Request $request, Validation $validation) 
     {
-        $request->validate($validation->CompenzationData());
+        $request->validate($validation->compenzationData());
         return redirect()->back();
+    }
+
+      /**
+     * Post za authorised registration / final step.
+     * 
+     * @param Request $request
+     * @param Validation $validation
+     * @param Compenzation $registration
+     * @return RedirectResponse
+     */
+    public function postCompenzation(Request $request, Validation $validation, Compenzation $compenzation) {
+
+        $request->validate($validation->compenzationData());
+
+        $user = $registration->registerAuthorised($request->input());
+
+        //Notification::send($user, new PersonalIdentification($user)); //TO DO: PREVERI KAJ TO NAREDI
+
+        return redirect()->route('home')->with([
+            'modal' => [
+                'title' => __('modals.register.title'),
+                'content' => __('modals.register.success'),
+                'status' => 'success',
+                'actions' => [[
+                    'action' => [
+                        'type' => 'close',
+                    ],
+                    'text' => __('modals.common.confirm')
+                ]]
+            ]
+        ]);
+
     }
 
 }

@@ -52,7 +52,7 @@ Route::get('/entities/entity/new', [UserController::class, 'registerEntity'])->n
 
 Route::get('/compenzations', [CompenzationController::class, 'getCompenzations'])->name('compenzations');
 Route::get('/compenzations/{id}', [CompenzationController::class, 'getCompenzation'])->name('compenzations.compenzation');
-Route::get('/compenzations/compenzation/new', [CompenzationController::class, 'addCompenzation'])->name('compenzations.compenzation.new');
+Route::get('/compenzations/compenzation/new', [CompenzationController::class, 'newCompenzation'])->name('compenzations.compenzation.new');
 
 /**
  * Post za enterprise data step registracijo 

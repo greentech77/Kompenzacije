@@ -61,7 +61,7 @@
       Label
     },
     props: {
-      form: Object,
+      form: Object
     },
     mixins: [stepperEventsMixin, fakeRegisterDataMixin, addressMixin],
     data() {
@@ -71,7 +71,7 @@
         components: [
           { 
             type: 'InputGroup', 
-            data: { compenzationEntity: { value: '' }, errors: { compenzationEntity: '' }, processing: false } 
+            data: { compenzationEntity: { key: 'value' }, errors: { compenzationEntity: '' }, processing: false } 
           }
         ],
       }
@@ -132,7 +132,7 @@
     this.components.push(
     { 
         type: 'InputGroup', 
-        data: { compenzationEntity: { value: '' }, errors: { compenzationEntity: '' }, processing: false }
+        data: { compenzationEntity: { key: 'value' }, errors: { compenzationEntity: '' }, processing: false }
     });
 
     this.saveComponents();

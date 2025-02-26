@@ -67,7 +67,20 @@ export default {
         startingView: String,
         name: String,
         options: Array,
-        disabled: Boolean
+        disabled: Boolean,
+        placeholder: String,
+        onChange: {
+            type: Function,
+            required: false,
+        },
+        onInput: {
+            type: Function,
+            required: false,
+        },
+        onBlur: {
+            type: Function,
+            required: false,
+        },
     },
 
     emits: ['update:modelValue'],

@@ -4,7 +4,7 @@
 
         <div class="flex justify-end space-x-4 mb-6">
 
-        <Button class="button button--stone" @click="addcompenzation()">Dodaj kompenzacijo</Button>
+        <Button class="button button--stone" @click="newCompenzation()">Dodaj kompenzacijo</Button>
 
         </div>
 
@@ -69,7 +69,7 @@ export default {
                 id: compenzation.id
             }))
         },
-        addcompenzation() {
+        newCompenzation() {
             this.$inertia.get(this.route('compenzations.compenzation.new'));
         }
     }
