@@ -1,39 +1,80 @@
+# Compensation Management System
 
-# README #
+This application is built using PHP, Laravel, Vue.js, and Inertia. It allows users to manage customers, handle debt compensations, generate documents, and export data.
 
-This README would normally document whatever steps are necessary to get your application up and running.
+## Features
+- Add and edit customers
+- Manage compensations (debt settlements)
+- Generate and export documents
+- Data export functionality
 
-### What is this repository for? ###
+## Technologies Used
+- **Backend:** Laravel (PHP)
+- **Frontend:** Vue.js with Inertia.js
+- **Database:** MySQL (or other supported DBs)
+- **Authentication:** Laravel Breeze
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+## Installation
 
-### How do I get set up? ###
+### Prerequisites
+Make sure you have the following installed:
+- PHP (>=8.0 recommended)
+- Composer
+- Node.js & npm
+- MySQL or another database system
 
-* Summary of set up
-	- run "composer install" to install composer dependencies from composer.lock file
-	- run "composer install -D <package name> to add new dependency: use -D switch to install as dev denepndecy
-	- run "composer update" if any new dependencies are installed (added to composer.json file)
-	- run npm install to install packages form package.json
-	- run npm install <package name> to add new package to package.json
-	- run npm install to install packages form package.json again
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+### Steps
 
-### Contribution guidelines ###
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/greentech77/Kompenzacije.git
+   cd your-repo
+   ```
 
-* Writing tests
-* Code review
-* Other guidelines
+2. Install dependencies:
+   ```sh
+   composer install
+   npm install
+   ```
 
-### Who do I talk to? ###
+3. Configure environment:
+   ```sh
+   cp .env.example .env
+   php artisan key:generate
+   ```
+   Update the `.env` file with your database credentials.
 
-* Repo owner or admin
-* Other community or team contact
-=======
-# Kompenzacije
->>>>>>> 8f262fed4f134b1494d447ca37a6d2fca654d4f7
+4. Run migrations:
+   ```sh
+   php artisan migrate --seed
+   ```
+
+5. Start the development server:
+   ```sh
+   php artisan serve
+   ```
+
+6. Run frontend development server:
+   ```sh
+   npm run dev
+   ```
+
+## Usage
+- Navigate to `http://localhost:8000`
+- Register or log in (if authentication is enabled)
+- Manage customers and compensations
+
+## Deployment
+- Build frontend assets:
+  ```sh
+  npm run build
+  ```
+- Set up a web server (Nginx/Apache) and configure Laravel accordingly
+- Run database migrations on production
+
+## Contribution
+Feel free to submit issues and pull requests to improve the application.
+
+## License
+This project is licensed under the MIT License.
+
